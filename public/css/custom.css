@@ -1,0 +1,55 @@
+.sample {
+    background-color: #2B97D2 !important;
+    color: #000 !important;
+}
+
+.sample a:link { color: #FFF; }
+.sample a:visited { color: #FFF; }
+.sample a:hover { color: #FFF; }
+.sample a:active { color: #FFF; }
+
+.sampleStar {
+    color: #EE9938;
+}
+
+.table-striped>tbody>tr:nth-of-type(odd) {
+    background-color: #e8e8e8;
+}
+
+.titleText {
+    font-size:16px;
+}
+
+.bodyText {
+    font-size: 13px;
+}
+
+dl {
+    border: 3px double #ccc;
+    padding: 0.5em;
+}
+dt {
+    float: left;
+    clear: left;
+    width: 100px;
+    text-align: right;
+    font-weight: bold;
+    color: black;
+}
+dt:after {
+    content: ":";
+}
+dd {
+    margin: 0 0 0 110px;
+    padding: 0 0 0.5em 0;
+}
+
+.navbarHeaderPadding {
+    padding-left:5px; 
+    padding-top:10px; 
+    padding-bottom:10px;
+}
+
+.logoHeight {
+    height:50px;
+}

@@ -1,0 +1,65 @@
+<div ng-controller="UserDetailsController">
+    <div>
+        <h3>Details</h3>
+        <dl class="floated">
+            <div ng-show="editUserName">
+                <dt>Username</dt>
+                <dd><input name="name" ng-model="userDetails.username" value="{{ userDetails.username }}">
+                    &nbsp; <i ng-click="save( 'username', userDetails.username )" class="fa fa-check-square-o"></i></dd>
+            </div>
+            <div ng-show="!editUserName">
+                <dt>Username</dt>
+                <dd>{{ userDetails.username }} <i ng-click="edit( 'username', userDetails.username )" class="fa fa-pencil-square-o"></i></dd>
+            </div>
+
+            <div ng-show="editName">
+                <dt>Name</dt>
+                <dd><input name="name" ng-model="userDetails.name" value="{{ userDetails.name }}">
+                    &nbsp; <i ng-click="save( 'name', userDetails.name )" class="fa fa-check-square-o"></i></dd>
+            </div>
+            <div ng-show="!editName">
+                <dt>Name</dt>
+                <dd>{{ userDetails.name }} <i ng-click="edit( 'name', userDetails.name )" class="fa fa-pencil-square-o"></i></dd>
+            </div>
+
+            <dt>Email</dt>
+            <dd>{{ userDetails.email }}</dd>
+
+            <dt>Phone</dt>
+            <dd>{{ userDetails.phone }}</dd>
+
+            <dt>Website</dt>
+            <dd>{{ userDetails.website }}</dd>
+
+            <dt>Company</dt>
+            <dd>{{ userDetails.company.name }} ({{ userDetails.company.bs }}) ({{ userDetails.company.catchPhrase }})</dd>
+
+            <dt>Address</dt>
+            <dd>{{ userDetails.address.street }}, {{ userDetails.address.suite }}, {{ userDetails.address.city }} {{ userDetails.address.zipcode }}</dd>
+        </dl>
+    </div>
+
+    <div>
+        <h3>Posts By User</h3>
+        <table class="table table-striped table-inverse">
+            <thead>
+            <tr>
+                <td><strong>Title</strong></td>
+                <td><strong>Content</strong></td>
+                <td><strong>Username</strong></td>
+            </tr>
+            </thead>
+            <tbody>
+            <tr ng-class="(post.liked) ? 'sample' : ''"  ng-repeat="post in posts" ng-if="post.userId == userDetails.id">
+                <td class="titleText"><a ng-href="/postDetails/{{post.id}}">{{post.title}}</a></td>
+                <td class="bodyText">{{post.body}}</td>
+                <td><a ng-href="/userDetails/{{post.userId}}">{{ userDetails.username }}</a></td>
+                <td>
+                    <font class="sampleStar"><i ng-if="post.liked" ng-click="unmarkFav( post.id )" class="fa fa-star"></i></font>
+                    <i ng-if="!post.liked" ng-click="markAsFav( post.id )" class="fa fa-star"></i>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
